@@ -367,7 +367,6 @@ sub _GetDynamicFieldsDefinition {
                 eval {
 
                     my $Run = $Jobs{$Job}->{Module}->GetDynamicFieldsDefinition(
-                        $Self,
                         Param     => \%Param,
                         Config    => $Jobs{$Job},    # the job config
                         NewFields => \@NewFields
