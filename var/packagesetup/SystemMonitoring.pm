@@ -1,8 +1,6 @@
 # --
 # SystemMonitoring.pm - code to excecute during package installation
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.com/
-# --
-# $Id: SystemMonitoring.pm,v 1.6 2012-02-02 15:59:27 mh Exp $
+# Copyright (C) 2001-2014 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -10,6 +8,7 @@
 # --
 
 package var::packagesetup::SystemMonitoring;
+## no critic(Perl::Critic::Policy::OTRS::RequireCamelCase)
 
 use strict;
 use warnings;
@@ -22,8 +21,6 @@ use Kernel::System::DynamicField;
 
 use vars qw(@ISA $VERSION);
 use YAML;
-
-$VERSION = qw($Revision: 1.6 $) [1];
 
 =head1 NAME
 
@@ -47,6 +44,7 @@ create an object
     use Kernel::System::Encode;
     use Kernel::System::Log;
     use Kernel::System::Main;
+    use Kernel::System::Ticket;
     use Kernel::System::Time;
     use Kernel::System::DB;
     use Kernel::System::XML;
@@ -82,6 +80,14 @@ create an object
         DBObject     => $DBObject,
         MainObject   => $MainObject,
     );
+    my $TicketObject = Kernel::System::Ticket->new(
+        ConfigObject => $ConfigObject,
+        EncodeObject => $EncodeObject,
+        LogObject    => $LogObject,
+        DBObject     => $DBObject,
+        MainObject   => $MainObject,
+        TimeObject   => $TimeObject,
+    );
     my $CodeObject = var::packagesetup::SystemMonitoring->new(
         ConfigObject => $ConfigObject,
         EncodeObject => $EncodeObject,
@@ -90,6 +96,7 @@ create an object
         TimeObject   => $TimeObject,
         DBObject     => $DBObject,
         XMLObject    => $XMLObject,
+        TicketObject => $TicketObject,
     );
 
 =cut
@@ -103,13 +110,16 @@ sub new {
 
     # check needed objects
     for my $Object (
-        qw(ConfigObject EncodeObject LogObject MainObject TimeObject DBObject XMLObject)
+        qw(
+        ConfigObject EncodeObject LogObject MainObject TimeObject DBObject XMLObject
+        TicketObject
+        )
         )
     {
         $Self->{$Object} = $Param{$Object} ||
             $Self->{LogObject}->Log(
             Priority => 'error',
-            Message  => "Missing parameter for $Object!"
+            Message  => "Missing parameter for $Object!",
             );
     }
 
@@ -216,7 +226,7 @@ sub CodeUpgradeFromLowerThan_2_2_92 {
             Name => $DynamicFieldNew->{Name},
         );
 
-        if ( not exists( $DynamicFieldOld->{ID} ) ) {
+        if ( !exists $DynamicFieldOld->{ID} ) {
             $Self->{LogObject}->Log(
                 Priority => 'error',
                 Message  => "The old Field does not exist $DynamicFieldNew->{Name}, skipping."
@@ -353,38 +363,42 @@ sub _GetDynamicFieldsDefinition {
     my @AllNewFields = ();    # the fields that are filled out
 
     # run all PreFilterModules (modify email params)
-    foreach my $Key ('PostMaster::PreFilterModule')
+    for my $Key ('PostMaster::PreFilterModule')
     {
         if ( ref $Self->{ConfigObject}->Get($Key) eq 'HASH' ) {
             my %Jobs = %{ $Self->{ConfigObject}->Get($Key) };
+            JOB:
             for my $Job ( sort keys %Jobs ) {
                 return if !$Self->{MainObject}->Require( $Jobs{$Job}->{Module} );
 
-                next unless $Jobs{$Job}->{Module}->can("GetDynamicFieldsDefinition");
+                if (
+                    $Jobs{$Job}->{Module} ne 'Kernel::System::PostMaster::Filter::SystemMonitoring'
+                    )
+                {
+                    next JOB;
+                }
 
                 my @NewFields;
 
-                eval {
+                my $FilterObject = $Jobs{$Job}->{Module}->new( %{$Self} );
 
-                    my $Run = $Jobs{$Job}->{Module}->GetDynamicFieldsDefinition(
-                        $Self,
-                        Param     => \%Param,
-                        Config    => $Jobs{$Job},    # the job config
-                        NewFields => \@NewFields
+                if ( !$FilterObject ) {
+                    $Kernel::OM->Get('Kernel::System::Log')->Log(
+                        Priority => 'error',
+                        Message  => "Can not create $Jobs{$Job}->{Module} object!",
                     );
-                    if ( !$Run ) {
-                        $Self->{LogObject}->Log(
-                            Priority => 'error',
-                            Message =>
-                                "Execute GetDynamicFieldsDefinition() of $Key $Jobs{$Job}->{Module} not successful!",
-                        );
-                    }
-                };
-                if ($@) {                            # error in eval
-                    $Self->{LogObject}->Log(
+                    next JOB;
+                }
+
+                my $Run = $FilterObject->GetDynamicFieldsDefinition(
+                    Config    => $Jobs{$Job},    # the job config
+                    NewFields => \@NewFields
+                );
+                if ( !$Run ) {
+                    $Kernel::OM->Get('Kernel::System::Log')->Log(
                         Priority => 'error',
                         Message =>
-                            "Execute GetDynamicFieldsDefinition() of $Key $Jobs{$Job}->{Module} not successful with error $@!",
+                            "Execute GetDynamicFieldsDefinition() of $Key $Jobs{$Job}->{Module} not successful!",
                     );
                 }
                 else {
@@ -393,6 +407,7 @@ sub _GetDynamicFieldsDefinition {
             }
         }
     }
+
     return @AllNewFields;
 }
 
