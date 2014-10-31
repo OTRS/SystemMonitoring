@@ -9,6 +9,7 @@
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 2.5.3 2014-??-??
+ - 2014-10-31 Fixed bug#10847 - Configuration settings for the dynamic fields have missing the DynamicField_ prefix.
  - 2014-10-31 Fixed bug#10123 - DynamicFields will not be installed.
 
 2.3.3 2012-08-21
