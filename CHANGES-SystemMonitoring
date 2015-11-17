@@ -9,7 +9,13 @@
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
-4.0.0 RC1 - 2014-??-??
+4.0.2 - 2014-??-??
+ - 2015-11-17 Fixed bug#[9706](http://bugs.otrs.org/show_bug.cgi?id=9706) - ClosePending Time - not affected.
+
+4.0.1 - 2014-11-21
+ - Code cleanup.
+
+4.0.0 RC1 - 2014-11-14
  - 2014-10-31 Fixed bug#10847 - Configuration settings for the dynamic fields have missing the DynamicField_ prefix.
  - 2014-10-31 Fixed bug#10123 - DynamicFields will not be installed.
 
