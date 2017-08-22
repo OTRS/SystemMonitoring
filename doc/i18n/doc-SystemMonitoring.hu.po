@@ -1,0 +1,631 @@
+# Hungarian translation of doc-SystemMonitoring.
+# Copyright (C) 2001-2017 OTRS AG, https://otrs.com/
+# This file is distributed under the same license as the SystemMonitoring package.
+#
+# Hungarian translation of OTRS and ITSM, https://www.otrs-megoldasok.hu/
+# OTRS és ITSM magyar fordítás, https://www.otrs-megoldasok.hu/
+#
+# Balázs Úr <urbalazs@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: SystemMonitoring\n"
+"POT-Creation-Date: 2017-08-18 09:46+0200\n"
+"PO-Revision-Date: 2017-08-18 10:21+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <forditas@otrs-megoldasok.hu>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#. type: Attribute 'lang' of: <book>
+#: en/SystemMonitoring.xml:5
+msgid "en"
+msgstr "hu"
+
+#. type: Content of: <book><bookinfo><title>
+#: en/SystemMonitoring.xml:11
+msgid "$Name"
+msgstr "$Name"
+
+#. type: Content of: <book><bookinfo>
+#: en/SystemMonitoring.xml:12
+msgid ""
+"<edition>$Description Version $Version</edition> <copyright> <year>"
+"$YearStamp</year> <holder>$Vendor, $URL</holder> </copyright> <date>"
+"$DateStamp</date>"
+msgstr ""
+"<edition>$Description, verzió: $Version</edition> <copyright> <year>"
+"$YearStamp</year> <holder>$Vendor, $URL</holder> </copyright> <date>"
+"$DateStamp</date>"
+
+#. type: Content of: <book><bookinfo><legalnotice><para>
+#: en/SystemMonitoring.xml:19
+msgid "$License"
+msgstr "$License"
+
+#. type: Content of: <book><bookinfo><legalnotice><para>
+#: en/SystemMonitoring.xml:21
+msgid ""
+"This work is copyrighted by $Vendor, Zimmersmühlenweg 11, 61440 Oberursel, "
+"Germany."
+msgstr ""
+"Ez a mű az $Vendor szerzői joga alatt áll, Zimmersmühlenweg 11, 61440 "
+"Oberursel, Németország."
+
+#. type: Content of: <book><bookinfo><legalnotice><para>
+#: en/SystemMonitoring.xml:23
+msgid "Build Date: $DateStamp"
+msgstr "Összeállítás dátuma: $DateStamp"
+
+#. type: Content of: <book><preface><title>
+#: en/SystemMonitoring.xml:35
+msgid "Preface"
+msgstr "Előszó"
+
+#. type: Content of: <book><preface><para>
+#: en/SystemMonitoring.xml:37
+msgid ""
+"This module implements a basic interface to System Monitoring Suites. It "
+"works by receiving email messages sent by a Network Monitoring Suite. New "
+"tickets are created in case of component failures. Once a ticket has been "
+"opened messages regarding the effected component are attached to this "
+"ticket. When the component recovers, the ticket state can be changed or the "
+"ticket can be closed."
+msgstr ""
+"Ez a modul egy alap felület valósít meg a rendszerfigyelés "
+"alkalmazáscsomaghoz. E-mail üzenetek fogadásával működik, amelyeket egy "
+"hálózatfigyelő alkalmazáscsomag küld. Új jegyek az összetevők hibái esetén "
+"jönnek létre. Miután egy jegy megnyílt, az érintett összetevőre vonatkozó "
+"üzenetek ehhez a jegyhez lesznek csatolva. Amikor az összetevő helyreáll, a "
+"jegyállapot megváltoztatható vagy a jegy lezárható."
+
+#. type: Content of: <book><preface><para>
+#: en/SystemMonitoring.xml:45
+msgid ""
+"If an open ticket for a given Host/Service combination exists, all mails "
+"concerning this particular combination will be attached to the ticket until "
+"it's closed."
+msgstr ""
+"Ha létezik nyitott jegy egy adott gép/szolgáltatás kombinációjához, akkor az "
+"erre a bizonyos kombinációra vonatkozó összes levél csatolva lesz a jegyhez, "
+"amíg az nincs lezárva."
+
+#. type: Content of: <book><preface><para>
+#: en/SystemMonitoring.xml:51
+msgid ""
+"If you have questions regarding this document or if you need further "
+"information, please log in to our customer portal at portal.otrs.com with "
+"your OTRS ID and create a ticket. You do not have an OTRS ID yet? Register "
+"<ulink url=\"https://portal.otrs.com/otrs/customer.pl#Signup\">here for "
+"free</ulink>."
+msgstr ""
+"Ha kérdései vannak ezzel a dokumentummal kapcsolatban, vagy további "
+"információkra van szüksége, akkor lépjen be az OTRS azonosítójával a "
+"portal.otrs.com címen lévő ügyfélportálunkra, és hozzon létre egy jegyet. "
+"Még nincs OTRS azonosítója? Regisztráljon <ulink "
+"url=\"https://portal.otrs.com/otrs/customer.pl#Signup\">itt ingyenesen<"
+"/ulink>."
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:60
+msgid "Feature List"
+msgstr "Funkciólista"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:69
+msgid "Control flow"
+msgstr "Vezérlési folyamat"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:71
+msgid ""
+"The following diagram illustrates how mails are handled by this module and "
+"in which cases they trigger which action. Pretty much all checks are "
+"configurable using the regular expressions given by the parameters listed "
+"above."
+msgstr ""
+"A következő diagram azt mutatja be, hogy ez a modul hogyan kezeli a "
+"leveleket, és az egyes esetekben mely műveletet aktiválják."
+
+#. type: CDATA
+#: en/SystemMonitoring.xml:76
+#, no-wrap
+msgid ""
+"Mail matches 'FromAddress'?\n"
+"|\n"
+"+-> NO  --> Continue with regular mail processing\n"
+"|\n"
+"+-> YES --> Does a ticket with matching Host/Service combination\n"
+"            already exist in OTRS?\n"
+"            |\n"
+"            +-> NO  -> Does 'State:' match 'NewTicketRegExp'?\n"
+"            |          |\n"
+"            |          +-> NO  -> Stop processing this mail\n"
+"            |          |          (silent drop)\n"
+"            |          |\n"
+"            |          +-> YES -> Create new ticket, record Host\n"
+"            |                     and Service, attach mail\n"
+"            |\n"
+"            +-> YES -> Attach mail to ticket\n"
+"                    -> Does 'State:' match 'CloseTicketRegExp'?\n"
+"                        |\n"
+"                        +-> NO  -> Continue with regular mail processing\n"
+"                        |\n"
+"                        +-> YES -> Change ticket type as configured in\n"
+"                                    'CloseActionState'"
+msgstr ""
+"A levél illeszkedik a „FromAddress” értékre?\n"
+"|\n"
+"+-> NEM  -> Folytatás a szabályos levélfeldolgozással\n"
+"|\n"
+"+-> IGEN -> Létezik már a megegyező gép/szolgáltatás kombinációval egy\n"
+"            jegy az OTRS-ben?\n"
+"            |\n"
+"            +-> NEM  -> A „State:” illeszkedik erre: „NewTicketRegExp”?\n"
+"            |           |\n"
+"            |           +-> NEM  -> A levél feldolgozásának leállítása\n"
+"            |           |           (csendes eldobás)\n"
+"            |           |\n"
+"            |           +-> IGEN -> Új jegy létrehozása, a szolgáltatás\n"
+"            |                       és a gép rögzítése, levél csatolása\n"
+"            |\n"
+"            +-> IGEN -> Levél csatolása a jegyhez\n"
+"                     -> A „State:” illeszkedik erre: „CloseTicketRegExp”?\n"
+"                         |\n"
+"                         +-> NEM  -> Folytatás szabályos levélfeldolgozással\n"
+"                         |\n"
+"                         +-> IGEN -> Jegytípus megváltoztatása arra, ahogy\n"
+"                                     be van állítva ebben: „CloseActionState”"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:76 en/SystemMonitoring.xml:169
+msgid "<placeholder type=\"screen\" id=\"0\"/>"
+msgstr "<placeholder type=\"screen\" id=\"0\"/>"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:100
+msgid ""
+"Besides of a few additional sanity checks this is how the SystemMonitoring "
+"module treats incoming mails. By changing the regular expressions it should "
+"be possible to adopt it to different monitoring systems."
+msgstr ""
+"Néhány további épségellenőrzés mellett ez az, ahogy a rendszerfigyelő modul "
+"kezeli a bejövő leveleket. A reguláris kifejezések megváltoztatásával "
+"lehetővé kell tenni a különböző megfigyelőrendszerekhez való alkalmazkodást."
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:112
+msgid "System Requirements"
+msgstr "Rendszerkövetelmények"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:114
+msgid "Framework"
+msgstr "Keretrendszer"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:115
+msgid "The following OTRS framework is required:"
+msgstr "A következő OTRS keretrendszer szükséges:"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:116
+msgid "$Framework"
+msgstr "$Framework"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:119
+msgid "Packages"
+msgstr "Csomagok"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:120
+msgid "The following packages are required:"
+msgstr "A következő csomagok szükségesek:"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:121
+msgid "$PackageRequired"
+msgstr "$PackageRequired"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:124
+msgid "Operating System"
+msgstr "Operációs rendszer"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:125
+msgid "This package requires one of the following operating systems:"
+msgstr "Ez a csomag a következő operációs rendszerek egyikét igényli:"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:126
+msgid "$OS"
+msgstr "$OS"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:129
+msgid "Third Party Software"
+msgstr "Harmadik féltől származó szoftver"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:130
+msgid "This third party software is required to use this package:"
+msgstr ""
+"Ez a harmadik féltől származó szoftver szükséges a csomag használatához:"
+
+#. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
+#: en/SystemMonitoring.xml:134
+msgid ""
+"A network monitoring system, such as Nagios, or HP OpenView, or similar, "
+"capable of sending out events via e-mail."
+msgstr ""
+"Egy hálózatfigyelő rendszer, mint például Nagios, HP OpenView vagy hasonlók, "
+"amelyek képesek az eseményeket e-mailen keresztül elküldeni."
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:146
+msgid "Installation"
+msgstr "Telepítés"
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:148
+msgid "The following instructions explain how to install the package."
+msgstr ""
+"A következő lépések elmagyarázzák, hogy hogyan kell telepíteni a csomagot."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:151
+msgid "Admin Interface"
+msgstr "Adminisztrátori felület"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:153
+msgid ""
+"Please use the following URL to install the package utilizing the Admin "
+"Interface (please note that you need to be in the \"admin\" group)."
+msgstr ""
+"Használja a következő URL-t a csomag telepítéséhez, hogy használhassa az "
+"adminisztrátori felületet (ne feledje, hogy az „admin” csoportban kell "
+"lennie)."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:157
+msgid ""
+"<ulink url=\"http://localhost/otrs/index.pl?Action=AdminPackageManager\"> "
+"http://localhost/otrs/index.pl?Action=AdminPackageManager </ulink>"
+msgstr ""
+"<ulink url=\"http://localhost/otrs/index.pl?Action=AdminPackageManager\"> "
+"http://localhost/otrs/index.pl?Action=AdminPackageManager </ulink>"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:163
+msgid "Command Line"
+msgstr "Parancssor"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:165
+msgid ""
+"Whenever you cannot use the Admin Interface for whatever reason, you may use "
+"the following command line tool (\"bin/otrs.Console.pl Admin::Package::"
+"Install\") instead."
+msgstr ""
+"Ha esetleg valamilyen okból nem tudja használni az adminisztrátori felületet, "
+"akkor használhatja a következő parancssori eszközt helyette "
+"(„bin/otrs.Console.pl Admin::Package::Install”)."
+
+#. type: Content of: <book><chapter><section><para><screen>
+#: en/SystemMonitoring.xml:170
+#, no-wrap
+msgid ""
+"shell> bin/otrs.Console.pl Admin::Package::Install "
+"/path/to/$Name-$Version.opm\n"
+"            "
+msgstr ""
+"shell> bin/otrs.Console.pl Admin::Package::Install "
+"/elérési/út/$Name-$Version.opm\n"
+"            "
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:180
+msgid "Configuration"
+msgstr "Beállítás"
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:181
+msgid ""
+"The package can be configured via the SysConfig in the Admin Interface. The "
+"following configuration options are available:"
+msgstr ""
+"A csomag a rendszerbeállításokon keresztül állítható be az adminisztrátori "
+"felületen. A következő beállítási lehetőségek érhetők el:"
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:183
+msgid "Nagios::Acknowledge::FreeField::Host."
+msgstr "Nagios::Acknowledge::FreeField::Host."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:184 en/SystemMonitoring.xml:189
+#: en/SystemMonitoring.xml:194 en/SystemMonitoring.xml:199
+#: en/SystemMonitoring.xml:204 en/SystemMonitoring.xml:209
+#: en/SystemMonitoring.xml:214 en/SystemMonitoring.xml:219
+#: en/SystemMonitoring.xml:224 en/SystemMonitoring.xml:249
+msgid "Group: SystemMonitoring, Subgroup: Nagios::Acknowledge."
+msgstr "Csoport: SystemMonitoring, alcsoport: Nagios::Acknowledge."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:185
+msgid "Name of the Dynamic Field for Host."
+msgstr "A dinamikus mező neve a gépnél."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:188
+msgid "Nagios::Acknowledge::FreeField::Service."
+msgstr "Nagios::Acknowledge::FreeField::Service."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:190
+msgid "Name of the Dynamic Field for Service."
+msgstr "A dinamikus mező neve a szolgáltatásnál."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:193
+msgid "Nagios::Acknowledge::HTTP::Password."
+msgstr "Nagios::Acknowledge::HTTP::Password."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:195
+msgid "The http acknowledge password."
+msgstr "A HTTP nyugtázási jelszó."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:198
+msgid "Nagios::Acknowledge::HTTP::URL."
+msgstr "Nagios::Acknowledge::HTTP::URL."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:200
+msgid "The http acknowledge url."
+msgstr "A HTTP nyugtázási URL."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:203
+msgid "Nagios::Acknowledge::HTTP::User."
+msgstr "Nagios::Acknowledge::HTTP::User."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:205
+msgid "The http acknowledge user."
+msgstr "A HTTP nyugtázási felhasználó."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:208
+msgid "Nagios::Acknowledge::NamedPipe::CMD."
+msgstr "Nagios::Acknowledge::NamedPipe::CMD."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:210
+msgid "Named pipe acknowledge command."
+msgstr "Elnevezett cső nyugtázási parancs."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:213
+msgid "Nagios::Acknowledge::NamedPipe::Host."
+msgstr "Nagios::Acknowledge::NamedPipe::Host."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:215
+msgid "Named pipe acknowledge format for host."
+msgstr "Elnevezett cső nyugtázási formátum a gépnél."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:218
+msgid "Nagios::Acknowledge::NamedPipe::Service."
+msgstr "Nagios::Acknowledge::NamedPipe::Service."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:220
+msgid "Named pipe acknowledge format for service."
+msgstr "Elnevezett cső nyugtázási formátum a szolgáltatásnál."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:223
+msgid "Nagios::Acknowledge::Type."
+msgstr "Nagios::Acknowledge::Type."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:225
+msgid "Define Nagios acknowledge type."
+msgstr "Nagios nyugtázási típus meghatározása."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:228
+msgid "PostMaster::PreFilterModule###00-SystemMonitoring."
+msgstr "PostMaster::PreFilterModule###00-SystemMonitoring."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:229 en/SystemMonitoring.xml:234
+msgid "Group: SystemMonitoring, Subgroup: Core::PostMaster."
+msgstr "Csoport: SystemMonitoring, alcsoport: Core::PostMaster."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:230
+msgid ""
+"Basic mail interface to System Monitoring Suites. Use this block if the "
+"filter should run BEFORE PostMasterFilter."
+msgstr ""
+"Alap levelezési felület a rendszerfigyelő alkalmazáscsomaghoz. Akkor "
+"használja ezt a blokkot, ha a szűrőt a levelezési szűrő ELŐTT kell "
+"lefuttatni."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:233
+msgid "PostMaster::PreFilterModule###1-SystemMonitoring."
+msgstr "PostMaster::PreFilterModule###1-SystemMonitoring."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:235
+msgid ""
+"Basic mail interface to System Monitoring Suites. Use this block if the "
+"filter should run AFTER PostMasterFilter."
+msgstr ""
+"Alap levelezési felület a rendszerfigyelő alkalmazáscsomaghoz. Akkor "
+"használja ezt a blokkot, ha a szűrőt a levelezési szűrő UTÁN kell lefuttatni."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:238
+msgid "SystemMonitoring::LinkTicketWithCI."
+msgstr "SystemMonitoring::LinkTicketWithCI."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:239 en/SystemMonitoring.xml:244
+msgid "Group: SystemMonitoring, Subgroup: Core::ConfigItem."
+msgstr "Csoport: SystemMonitoring, alcsoport: Core::ConfigItem."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:240
+msgid ""
+"Link an already opened incident ticket with the affected CI. This is only "
+"possible when a subsequent system monitoring email arrives."
+msgstr ""
+"Egy már megnyitott incidensjegy összekapcsolása az érintett CI-vel. Ez csak "
+"akkor lehetséges, amikor egy következő rendszerfigyelő e-mail érkezik."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:243
+msgid "SystemMonitoring::SetIncidentState."
+msgstr "SystemMonitoring::SetIncidentState."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:245
+msgid ""
+"Set the incident state of a CI automatically when a system monitoring email "
+"arrives."
+msgstr ""
+"Egy CI incidensállapotának automatikus beállítása, amikor egy rendszerfigyelő "
+"e-mail érkezik."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:248
+msgid "Ticket::EventModulePost###9-NagiosAcknowledge."
+msgstr "Ticket::EventModulePost###9-NagiosAcknowledge."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:250
+msgid "Ticket event module to send an acknowlage to Nagios."
+msgstr "Jegyesemény modul egy nyugta küldéséhez a Nagios számára."
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:283
+msgid "File list"
+msgstr "Fájllista"
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:284
+msgid "This list shows all included files and the referring permissions."
+msgstr ""
+"Ez a lista jeleníti meg az összes tartalmazott fájlt és a hivatkozott "
+"jogosultságokat."
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:285
+msgid "$Filelist"
+msgstr "$Filelist"
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:292
+msgid "Tests"
+msgstr "Tesztek"
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:293
+msgid "This module has been tested on the current state of the art in quality."
+msgstr "Ezt a modult a jelenlegi legkorszerűbb minőségben tesztelték."
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:295
+msgid "Unit Tests"
+msgstr "Egységtesztek"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:297
+msgid ""
+"To ensure the quality of the module, several so-called unit tests were "
+"created, to test the functionalities of this module. These unit tests can be "
+"run via command line."
+msgstr ""
+"A modul minőségének biztosításához számos, úgynevezett egységtesztet hoztak "
+"létre a modul funkcionalitásainak teszteléséhez. Ezek az egységtesztek "
+"parancssoron keresztül futtathatók."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:301
+msgid ""
+"ATTENTION: Please never run unit tests on a productive system, since the "
+"added test data to the system will no longer be removed. Always use a test "
+"system."
+msgstr ""
+"FIGYELEM: soha ne futtasson egységteszteket egy produktív rendszeren, mivel "
+"a rendszerhez hozzáadott tesztadatok többé nem lesznek eltávolíthatók. "
+"Mindig tesztrendszert használjon."
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:304
+msgid "Run the package specific unit tests"
+msgstr "A csomagra jellemző egységtesztek futtatása"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:306
+msgid ""
+"To run only the unit test which will be delivered with this package, use the "
+"following command on the command line:"
+msgstr ""
+"Csak azon egységtesztek futtatásához, amelyet ez a csomag fog szállítani, "
+"használja a következő parancsot a parancssorban:"
+
+#. type: Content of: <book><chapter><section><screen>
+#: en/SystemMonitoring.xml:310
+#, no-wrap
+msgid ""
+"shell> perl bin/otrs.Console.pl Dev::UnitTest::Run --test "
+"SystemMonitoring:NagiosCheck:NagiosCheckTicketCount\n"
+"        "
+msgstr ""
+"shell> perl bin/otrs.Console.pl Dev::UnitTest::Run --test "
+"SystemMonitoring:NagiosCheck:NagiosCheckTicketCount\n"
+"        "
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:312
+msgid "Run all available unit tests"
+msgstr "Az összes elérhető egységteszt futtatása"
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:314
+msgid ""
+"To run all available unit tests, use the following command on the command "
+"line:"
+msgstr ""
+"Az összes elérhető egységteszt futtatásához használja a következő parancsot "
+"a parancssorban:"
+
+#. type: Content of: <book><chapter><section><screen>
+#: en/SystemMonitoring.xml:316
+#, no-wrap
+msgid "shell> perl bin/otrs.Console.pl Dev::UnitTest::Run"
+msgstr "shell> perl bin/otrs.Console.pl Dev::UnitTest::Run"
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:324
+msgid "Change Log"
+msgstr "Változásnapló"
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:325
+msgid "$ChangeLog"
+msgstr "$ChangeLog"
+

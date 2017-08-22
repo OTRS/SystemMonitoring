@@ -1,0 +1,534 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-08-18 09:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Attribute 'lang' of: <book>
+#: en/SystemMonitoring.xml:5
+msgid "en"
+msgstr ""
+
+#. type: Content of: <book><bookinfo><title>
+#: en/SystemMonitoring.xml:11
+msgid "$Name"
+msgstr ""
+
+#. type: Content of: <book><bookinfo>
+#: en/SystemMonitoring.xml:12
+msgid ""
+"<edition>$Description Version $Version</edition> <copyright> "
+"<year>$YearStamp</year> <holder>$Vendor, $URL</holder> </copyright> "
+"<date>$DateStamp</date>"
+msgstr ""
+
+#. type: Content of: <book><bookinfo><legalnotice><para>
+#: en/SystemMonitoring.xml:19
+msgid "$License"
+msgstr ""
+
+#. type: Content of: <book><bookinfo><legalnotice><para>
+#: en/SystemMonitoring.xml:21
+msgid ""
+"This work is copyrighted by $Vendor, Zimmersmühlenweg 11, 61440 Oberursel, "
+"Germany."
+msgstr ""
+
+#. type: Content of: <book><bookinfo><legalnotice><para>
+#: en/SystemMonitoring.xml:23
+msgid "Build Date: $DateStamp"
+msgstr ""
+
+#. type: Content of: <book><preface><title>
+#: en/SystemMonitoring.xml:35
+msgid "Preface"
+msgstr ""
+
+#. type: Content of: <book><preface><para>
+#: en/SystemMonitoring.xml:37
+msgid ""
+"This module implements a basic interface to System Monitoring Suites. It "
+"works by receiving email messages sent by a Network Monitoring Suite. New "
+"tickets are created in case of component failures. Once a ticket has been "
+"opened messages regarding the effected component are attached to this "
+"ticket. When the component recovers, the ticket state can be changed or the "
+"ticket can be closed."
+msgstr ""
+
+#. type: Content of: <book><preface><para>
+#: en/SystemMonitoring.xml:45
+msgid ""
+"If an open ticket for a given Host/Service combination exists, all mails "
+"concerning this particular combination will be attached to the ticket until "
+"it's closed."
+msgstr ""
+
+#. type: Content of: <book><preface><para>
+#: en/SystemMonitoring.xml:51
+msgid ""
+"If you have questions regarding this document or if you need further "
+"information, please log in to our customer portal at portal.otrs.com with "
+"your OTRS ID and create a ticket. You do not have an OTRS ID yet? Register "
+"<ulink url=\"https://portal.otrs.com/otrs/customer.pl#Signup\">here for "
+"free</ulink>."
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:60
+msgid "Feature List"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:69
+msgid "Control flow"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:71
+msgid ""
+"The following diagram illustrates how mails are handled by this module and "
+"in which cases they trigger which action. Pretty much all checks are "
+"configurable using the regular expressions given by the parameters listed "
+"above."
+msgstr ""
+
+#. type: CDATA
+#: en/SystemMonitoring.xml:76
+#, no-wrap
+msgid ""
+"Mail matches 'FromAddress'?\n"
+"|\n"
+"+-> NO  --> Continue with regular mail processing\n"
+"|\n"
+"+-> YES --> Does a ticket with matching Host/Service combination\n"
+"            already exist in OTRS?\n"
+"            |\n"
+"            +-> NO  -> Does 'State:' match 'NewTicketRegExp'?\n"
+"            |          |\n"
+"            |          +-> NO  -> Stop processing this mail\n"
+"            |          |          (silent drop)\n"
+"            |          |\n"
+"            |          +-> YES -> Create new ticket, record Host\n"
+"            |                     and Service, attach mail\n"
+"            |\n"
+"            +-> YES -> Attach mail to ticket\n"
+"                    -> Does 'State:' match 'CloseTicketRegExp'?\n"
+"                        |\n"
+"                        +-> NO  -> Continue with regular mail processing\n"
+"                        |\n"
+"                        +-> YES -> Change ticket type as configured in\n"
+"                                    'CloseActionState'"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:76 en/SystemMonitoring.xml:169
+msgid "<placeholder type=\"screen\" id=\"0\"/>"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:100
+msgid ""
+"Besides of a few additional sanity checks this is how the SystemMonitoring "
+"module treats incoming mails. By changing the regular expressions it should "
+"be possible to adopt it to different monitoring systems."
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:112
+msgid "System Requirements"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:114
+msgid "Framework"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:115
+msgid "The following OTRS framework is required:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:116
+msgid "$Framework"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:119
+msgid "Packages"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:120
+msgid "The following packages are required:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:121
+msgid "$PackageRequired"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:124
+msgid "Operating System"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:125
+msgid "This package requires one of the following operating systems:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:126
+msgid "$OS"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:129
+msgid "Third Party Software"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:130
+msgid "This third party software is required to use this package:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><itemizedlist><listitem><para>
+#: en/SystemMonitoring.xml:134
+msgid ""
+"A network monitoring system, such as Nagios, or HP OpenView, or similar, "
+"capable of sending out events via e-mail."
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:146
+msgid "Installation"
+msgstr ""
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:148
+msgid "The following instructions explain how to install the package."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:151
+msgid "Admin Interface"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:153
+msgid ""
+"Please use the following URL to install the package utilizing the Admin "
+"Interface (please note that you need to be in the \"admin\" group)."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:157
+msgid ""
+"<ulink url=\"http://localhost/otrs/index.pl?Action=AdminPackageManager\"> "
+"http://localhost/otrs/index.pl?Action=AdminPackageManager </ulink>"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:163
+msgid "Command Line"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:165
+msgid ""
+"Whenever you cannot use the Admin Interface for whatever reason, you may use "
+"the following command line tool (\"bin/otrs.Console.pl "
+"Admin::Package::Install\") instead."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para><screen>
+#: en/SystemMonitoring.xml:170
+#, no-wrap
+msgid ""
+"shell> bin/otrs.Console.pl Admin::Package::Install "
+"/path/to/$Name-$Version.opm\n"
+"            "
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:180
+msgid "Configuration"
+msgstr ""
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:181
+msgid ""
+"The package can be configured via the SysConfig in the Admin Interface. The "
+"following configuration options are available:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:183
+msgid "Nagios::Acknowledge::FreeField::Host."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:184 en/SystemMonitoring.xml:189 en/SystemMonitoring.xml:194 en/SystemMonitoring.xml:199 en/SystemMonitoring.xml:204 en/SystemMonitoring.xml:209 en/SystemMonitoring.xml:214 en/SystemMonitoring.xml:219 en/SystemMonitoring.xml:224 en/SystemMonitoring.xml:249
+msgid "Group: SystemMonitoring, Subgroup: Nagios::Acknowledge."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:185
+msgid "Name of the Dynamic Field for Host."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:188
+msgid "Nagios::Acknowledge::FreeField::Service."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:190
+msgid "Name of the Dynamic Field for Service."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:193
+msgid "Nagios::Acknowledge::HTTP::Password."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:195
+msgid "The http acknowledge password."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:198
+msgid "Nagios::Acknowledge::HTTP::URL."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:200
+msgid "The http acknowledge url."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:203
+msgid "Nagios::Acknowledge::HTTP::User."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:205
+msgid "The http acknowledge user."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:208
+msgid "Nagios::Acknowledge::NamedPipe::CMD."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:210
+msgid "Named pipe acknowledge command."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:213
+msgid "Nagios::Acknowledge::NamedPipe::Host."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:215
+msgid "Named pipe acknowledge format for host."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:218
+msgid "Nagios::Acknowledge::NamedPipe::Service."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:220
+msgid "Named pipe acknowledge format for service."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:223
+msgid "Nagios::Acknowledge::Type."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:225
+msgid "Define Nagios acknowledge type."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:228
+msgid "PostMaster::PreFilterModule###00-SystemMonitoring."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:229 en/SystemMonitoring.xml:234
+msgid "Group: SystemMonitoring, Subgroup: Core::PostMaster."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:230
+msgid ""
+"Basic mail interface to System Monitoring Suites. Use this block if the "
+"filter should run BEFORE PostMasterFilter."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:233
+msgid "PostMaster::PreFilterModule###1-SystemMonitoring."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:235
+msgid ""
+"Basic mail interface to System Monitoring Suites. Use this block if the "
+"filter should run AFTER PostMasterFilter."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:238
+msgid "SystemMonitoring::LinkTicketWithCI."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:239 en/SystemMonitoring.xml:244
+msgid "Group: SystemMonitoring, Subgroup: Core::ConfigItem."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:240
+msgid ""
+"Link an already opened incident ticket with the affected CI. This is only "
+"possible when a subsequent system monitoring email arrives."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:243
+msgid "SystemMonitoring::SetIncidentState."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:245
+msgid ""
+"Set the incident state of a CI automatically when a system monitoring email "
+"arrives."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:248
+msgid "Ticket::EventModulePost###9-NagiosAcknowledge."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:250
+msgid "Ticket event module to send an acknowlage to Nagios."
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:283
+msgid "File list"
+msgstr ""
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:284
+msgid "This list shows all included files and the referring permissions."
+msgstr ""
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:285
+msgid "$Filelist"
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:292
+msgid "Tests"
+msgstr ""
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:293
+msgid "This module has been tested on the current state of the art in quality."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><title>
+#: en/SystemMonitoring.xml:295
+msgid "Unit Tests"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:297
+msgid ""
+"To ensure the quality of the module, several so-called unit tests were "
+"created, to test the functionalities of this module. These unit tests can be "
+"run via command line."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:301
+msgid ""
+"ATTENTION: Please never run unit tests on a productive system, since the "
+"added test data to the system will no longer be removed. Always use a test "
+"system."
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:304
+msgid "Run the package specific unit tests"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:306
+msgid ""
+"To run only the unit test which will be delivered with this package, use the "
+"following command on the command line:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><screen>
+#: en/SystemMonitoring.xml:310
+#, no-wrap
+msgid ""
+"shell> perl bin/otrs.Console.pl Dev::UnitTest::Run --test "
+"SystemMonitoring:NagiosCheck:NagiosCheckTicketCount\n"
+"        "
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:312
+msgid "Run all available unit tests"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><para>
+#: en/SystemMonitoring.xml:314
+msgid ""
+"To run all available unit tests, use the following command on the command "
+"line:"
+msgstr ""
+
+#. type: Content of: <book><chapter><section><screen>
+#: en/SystemMonitoring.xml:316
+#, no-wrap
+msgid "shell> perl bin/otrs.Console.pl Dev::UnitTest::Run"
+msgstr ""
+
+#. type: Content of: <book><chapter><title>
+#: en/SystemMonitoring.xml:324
+msgid "Change Log"
+msgstr ""
+
+#. type: Content of: <book><chapter><para>
+#: en/SystemMonitoring.xml:325
+msgid "$ChangeLog"
+msgstr ""
