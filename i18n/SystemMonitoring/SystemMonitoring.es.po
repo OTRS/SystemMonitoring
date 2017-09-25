@@ -1,0 +1,95 @@
+# Translators:
+# David B <link.bigpoint@outlook.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2016-11-04 20:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: David B <link.bigpoint@outlook.com>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/otrs/teams/23435/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. SysConfig
+msgid ""
+"Basic mail interface to System Monitoring Suites. Use this block if the "
+"filter should run AFTER PostMasterFilter."
+msgstr ""
+"Interfaz de correo básico para el System Monitoring Suites. Utilice este "
+"bloque si el filtro debe funcionar DESPUÉS del PostMasterFilter."
+
+#. SysConfig
+msgid ""
+"Basic mail interface to System Monitoring Suites. Use this block if the "
+"filter should run BEFORE PostMasterFilter."
+msgstr ""
+"Interfaz de correo básico para el System Monitoring Suites. Utilice este "
+"bloque si el filtro debe funcionar ANTES del PostMasterFilter."
+
+#. SysConfig
+msgid ""
+"Set the incident state of a CI automatically when a system monitoring email "
+"arrives."
+msgstr ""
+"Establezca el estado de incidencia de un CI automáticamente cuando llegue un"
+" correo electrónico de supervisión del sistema."
+
+#. SysConfig
+msgid ""
+"Link an already opened incident ticket with the affected CI. This is only "
+"possible when a subsequent system monitoring email arrives."
+msgstr ""
+"Enlace un ticket de incidente ya abierto con el CI afectado. Esto sólo es "
+"posible cuando llega un correo electrónico de seguimiento del sistema "
+"posterior."
+
+#. SysConfig
+msgid "Name of the Dynamic Field for Host."
+msgstr "Nombre del campo dinámico para el host."
+
+#. SysConfig
+msgid "Name of the Dynamic Field for Service."
+msgstr "Nombre del campo dinámico para el servicio."
+
+#. SysConfig
+msgid "Define Nagios acknowledge type."
+msgstr "Define el tipo de reconocimiento de Nagios."
+
+#. SysConfig
+msgid "pipe"
+msgstr "pipe"
+
+#. SysConfig
+msgid "HTTP"
+msgstr "HTTP"
+
+#. SysConfig
+msgid "Named pipe acknowledge command."
+msgstr "Named pipe reconoce el comando."
+
+#. SysConfig
+msgid "Named pipe acknowledge format for host."
+msgstr "Named pipe reconoce el formato para el host."
+
+#. SysConfig
+msgid "Named pipe acknowledge format for service."
+msgstr "Named pipe reconoce el formato para el servicio."
+
+#. SysConfig
+msgid "Ticket event module to send an acknowledge to Nagios."
+msgstr "Modulo de Ticket de eventos para enviar un reconocimiento a Nagios."
+
+#. SysConfig
+msgid "The HTTP acknowledge URL."
+msgstr "El HTTP reconoce la URL."
+
+#. SysConfig
+msgid "The HTTP acknowledge user."
+msgstr "El HTTP reconoce al usuario."
+
+#. SysConfig
+msgid "The HTTP acknowledge password."
+msgstr "El HTTP reconoce la contraseña."
