@@ -1,7 +1,6 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 # --
-# otrs.NagiosCheck.pl - OTRS Nagios checker
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.com/
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU AFFERO General Public License as published by
@@ -10,12 +9,12 @@
 #
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 # or see http://www.gnu.org/licenses/agpl.txt.
 # --
 
@@ -109,7 +108,7 @@ my %Map = (
     min_crit_treshhold => 'min_crit_treshold',
     min_warn_treshhold => 'min_warn_treshold',
 );
-for my $Type ( keys %Map ) {
+for my $Type ( sort keys %Map ) {
     if ( defined $Config{$Type} ) {
         print STDERR "NOTICE: Typo in config name, use $Map{$Type} instead of $Type\n";
         $Config{ $Map{$Type} } = $Config{$Type};

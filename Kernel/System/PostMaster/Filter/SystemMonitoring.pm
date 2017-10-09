@@ -1,6 +1,5 @@
 # --
-# Kernel/System/PostMaster/Filter/SystemMonitoring.pm - Basic System Monitoring Interface
-# Copyright (C) 2001-2014 OTRS AG, http://otrs.com/
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -95,7 +94,7 @@ sub _GetDynamicFieldDefinition {
         if ( ( $ConfigFreeText < 1 ) || ( $ConfigFreeText > 16 ) ) {
             $Self->{LogObject}->Log(
                 Priority => 'error',
-                Message => "Bad value $ConfigFreeText for CI Config $Key, must be between 1 and 16!"
+                Message  => "Bad value $ConfigFreeText for CI Config $Key, must be between 1 and 16!"
             );
             die "Bad value $ConfigFreeText for CI Config $Key!";
         }
@@ -111,7 +110,7 @@ sub _GetDynamicFieldDefinition {
 
     my $FieldNameHost = $Base . $ConfigFreeText;
 
-# define all dynamic fields for System Monitoring, these need to be changed as well if the config changes
+    # define all dynamic fields for System Monitoring, these need to be changed as well if the config changes
     return (
         {
             Name       => $FieldNameHost,
@@ -363,9 +362,8 @@ sub _TicketUpdate {
 
     # Set Article Free Field for State
     my $ArticleFreeTextNumber = $Self->{Config}->{'FreeTextState'};
-    $Param->{GetParam}->{ 'X-OTRS-FollowUp-ArticleKey' . $ArticleFreeTextNumber } = 'State';
-    $Param->{GetParam}->{ 'X-OTRS-FollowUp-ArticleValue' . $ArticleFreeTextNumber }
-        = $Self->{State};
+    $Param->{GetParam}->{ 'X-OTRS-FollowUp-ArticleKey' . $ArticleFreeTextNumber }   = 'State';
+    $Param->{GetParam}->{ 'X-OTRS-FollowUp-ArticleValue' . $ArticleFreeTextNumber } = $Self->{State};
 
     if ( $Self->{State} =~ /$Self->{Config}->{CloseTicketRegExp}/ ) {
 
@@ -664,7 +662,7 @@ sub _LinkTicketWithCI {
 
 =head1 TERMS AND CONDITIONS
 
-This software is part of the OTRS project (http://otrs.org/).
+This software is part of the OTRS project (L<http://otrs.org/>).
 
 This software comes with ABSOLUTELY NO WARRANTY. For details, see
 the enclosed file COPYING for license information (AGPL). If you

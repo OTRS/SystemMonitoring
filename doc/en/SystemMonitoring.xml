@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
-<!-- $Id: SystemMonitoring.xml,v 1.7 2013-05-28 11:52:34 rs Exp $ -->
 <book lang="en">
     <bookinfo>
         <title>$Name</title>
@@ -12,7 +11,7 @@
         <date>$DateStamp</date>
         <legalnotice>
             <para>$License</para>
-            <para>This work is copyrighted by $Vendor, Norsk-Data-Str. 1, 61352 Bad Homburg, Germany.</para>
+            <para>This work is copyrighted by $Vendor, Zimmersmühlenweg 11, 61440 Oberursel, Germany.</para>
             <para>Build Date: $DateStamp</para>
         </legalnotice>
     </bookinfo>
@@ -268,18 +267,6 @@ shell> bin/opm.pl -a install -p /path/to/$Name-$Version.opm
                 to 'Yes', a CI is linked automatically with the system monitoring
                 incident ticket. This is only possible if a subsequent system monitoring
                 email arrives!
-            </para>
-        </sect1>
-    </chapter>
-    <chapter>
-        <title>Contact</title>
-        <para>
-            Please direct questions about the $Name Module to:
-        </para>
-        <sect1>
-            <title>OTRS AG/OTRS Inc.</title>
-            <para>
-                E-mail: enjoy@otrs.com
             </para>
         </sect1>
     </chapter>
