@@ -1,8 +1,5 @@
 # --
-# Kernel/System/Ticket/Event/NagiosAcknowledge.pm - acknowlege nagios tickets
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
-# --
-# $Id: NagiosAcknowledge.pm,v 1.12 2012-05-22 08:30:40 mb Exp $
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -15,9 +12,6 @@ use strict;
 use warnings;
 use LWP::UserAgent;
 use URI::Escape qw();
-
-use vars qw($VERSION);
-$VERSION = qw($Revision: 1.12 $) [1];
 
 sub new {
     my ( $Type, %Param ) = @_;
@@ -47,7 +41,10 @@ sub Run {
     # check needed stuff
     for (qw(TicketID Event Config)) {
         if ( !$Param{$_} ) {
-            $Self->{LogObject}->Log( Priority => 'error', Message => "Need $_!" );
+            $Self->{LogObject}->Log(
+                Priority => 'error',
+                Message  => "Need $_!"
+            );
             return;
         }
     }
@@ -62,7 +59,10 @@ sub Run {
         DynamicFields => 1,
     );
     if ( !$Ticket{ $Self->{Fhost} } ) {
-        $Self->{LogObject}->Log( Priority => 'debug', Message => "No Nagios Ticket!" );
+        $Self->{LogObject}->Log(
+            Priority => 'debug',
+            Message  => "No Nagios Ticket!"
+        );
         return 1;
     }
 
@@ -122,7 +122,10 @@ sub _Pipe {
     # check needed stuff
     for (qw(Ticket User)) {
         if ( !$Param{$_} ) {
-            $Self->{LogObject}->Log( Priority => 'error', Message => "Need $_!" );
+            $Self->{LogObject}->Log(
+                Priority => 'error',
+                Message  => "Need $_!"
+            );
             return;
         }
     }
@@ -146,7 +149,7 @@ sub _Pipe {
         # strip not allowed characters
         $Ticket{$Key} =~ s/'//g;
         $Ticket{$Key} =~ s/;//g;
-        $Data         =~ s/<$Key>/$Ticket{$Key}/g;
+        $Data =~ s/<$Key>/$Ticket{$Key}/g;
     }
 
     # replace config tags
@@ -180,7 +183,10 @@ sub _HTTP {
     # check needed stuff
     for (qw(Ticket User)) {
         if ( !$Param{$_} ) {
-            $Self->{LogObject}->Log( Priority => 'error', Message => "Need $_!" );
+            $Self->{LogObject}->Log(
+                Priority => 'error',
+                Message  => "Need $_!"
+            );
             return;
         }
     }

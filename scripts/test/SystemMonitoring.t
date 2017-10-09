@@ -1,8 +1,5 @@
 # --
-# SystemMonitoring.t - SystemMonitoring tests
-# Copyright (C) 2001-2012 OTRS AG, http://otrs.org/
-# --
-# $Id: SystemMonitoring.t,v 1.3 2012-10-30 20:04:42 cg Exp $
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
