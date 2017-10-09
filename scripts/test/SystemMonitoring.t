@@ -1,11 +1,12 @@
 # --
-# SystemMonitoring.t - SystemMonitoring tests
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.com/
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
+
+## nofilter(TidyAll::Plugin::OTRS::Perl::PerlCritic)
 
 use Kernel::System::Ticket;
 use Kernel::System::PostMaster;
@@ -17,8 +18,8 @@ my $DynamicFieldObject = Kernel::System::DynamicField->new( %{$Self} );
 my @DynamicfieldIDs;
 my @DynamicFieldUpdate;
 my %NeededDynamicfields = (
-    TicketFreeText1 => 1,
-    TicketFreeText2 => 1,
+    TicketFreeText1  => 1,
+    TicketFreeText2  => 1,
     ArticleFreeText1 => 1,
 );
 
@@ -56,8 +57,7 @@ for my $FieldName ( sort keys %NeededDynamicfields ) {
         push @DynamicfieldIDs, $FieldID;
     }
     else {
-        my $DynamicField
-            = $DynamicFieldObject->DynamicFieldGet( ID => $DynamicFields->{$FieldName} );
+        my $DynamicField = $DynamicFieldObject->DynamicFieldGet( ID => $DynamicFields->{$FieldName} );
 
         if ( $DynamicField->{ValidID} > 1 ) {
             push @DynamicFieldUpdate, $DynamicField;
@@ -77,9 +77,6 @@ for my $FieldName ( sort keys %NeededDynamicfields ) {
         }
     }
 }
-
-
-
 
 my $FileArray = $Self->{MainObject}->FileRead(
     Location => $Self->{ConfigObject}->Get('Home') . '/scripts/test/sample/SystemMonitoring1.box',
@@ -165,7 +162,6 @@ $Self->True(
     $Delete || 0,
     "TicketDelete()",
 );
-
 
 # revert changes to dynamic fields
 for my $DynamicField (@DynamicFieldUpdate) {

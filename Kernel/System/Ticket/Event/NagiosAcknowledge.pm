@@ -1,6 +1,5 @@
 # --
-# Kernel/System/Ticket/Event/NagiosAcknowledge.pm - acknowlege nagios tickets
-# Copyright (C) 2001-2013 OTRS AG, http://otrs.com/
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -42,13 +41,19 @@ sub Run {
     # check needed stuff
     for (qw(Data Event Config)) {
         if ( !$Param{$_} ) {
-            $Self->{LogObject}->Log( Priority => 'error', Message => "Need $_!" );
+            $Self->{LogObject}->Log(
+                Priority => 'error',
+                Message  => "Need $_!"
+            );
             return;
         }
     }
 
     if ( !$Param{Data}->{TicketID} ) {
-        $Self->{LogObject}->Log( Priority => 'error', Message => "Need Data->{TicketID}!" );
+        $Self->{LogObject}->Log(
+            Priority => 'error',
+            Message  => "Need Data->{TicketID}!"
+        );
         return;
     }
 
@@ -62,7 +67,10 @@ sub Run {
         DynamicFields => 1,
     );
     if ( !$Ticket{ $Self->{Fhost} } ) {
-        $Self->{LogObject}->Log( Priority => 'debug', Message => "No Nagios Ticket!" );
+        $Self->{LogObject}->Log(
+            Priority => 'debug',
+            Message  => "No Nagios Ticket!"
+        );
         return 1;
     }
 
@@ -122,7 +130,10 @@ sub _Pipe {
     # check needed stuff
     for (qw(Ticket User)) {
         if ( !$Param{$_} ) {
-            $Self->{LogObject}->Log( Priority => 'error', Message => "Need $_!" );
+            $Self->{LogObject}->Log(
+                Priority => 'error',
+                Message  => "Need $_!"
+            );
             return;
         }
     }
@@ -180,7 +191,10 @@ sub _HTTP {
     # check needed stuff
     for (qw(Ticket User)) {
         if ( !$Param{$_} ) {
-            $Self->{LogObject}->Log( Priority => 'error', Message => "Need $_!" );
+            $Self->{LogObject}->Log(
+                Priority => 'error',
+                Message  => "Need $_!"
+            );
             return;
         }
     }

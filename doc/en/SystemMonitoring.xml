@@ -19,7 +19,7 @@
 
 <legalnotice>
     <para>$License</para>
-    <para>This work is copyrighted by $Vendor, Norsk-Data-Str. 1, 61352 Bad Homburg, Germany.</para>
+    <para>This work is copyrighted by $Vendor, Zimmersmühlenweg 11, 61440 Oberursel, Germany.</para>
     <para>Build Date: $DateStamp</para>
 </legalnotice>
 
@@ -50,8 +50,9 @@
             ticket until it's closed.
         </para>
     <para>
-        If you have questions regarding this package, please contact your support team
-        (support@otrs.com) for more information.
+        If you have questions regarding this document or if you need further information, please log in to our customer portal at portal.otrs.com with your OTRS ID and create a ticket.
+        You do not have an OTRS ID yet? Register
+        <ulink url="https://portal.otrs.com/otrs/customer.pl#Signup">here for free</ulink>.
     </para>
 </preface>
 
@@ -377,23 +378,5 @@ Mail matches 'FromAddress'?
     $ChangeLog
     </para>
 </chapter>
-
-<chapter>
-    <!-- ************ -->
-    <!-- 11. Contacts -->
-    <!-- ************ -->
-    <title>Contacts</title>
-    <para>People who are involved in this implementation.</para>
-    <sect1>
-        <title>OTRS AG</title>
-        <para>
-            Accounting: René Bakker &lt;sales@otrs.com&gt;, Phone +49 (0)6172 681988 0
-        </para>
-        <para>
-            Technical: Manuel Hecht, Oliver Roettges &lt;dev-support@otrs.com&gt;, Phone +49 (0)6172 681988 0
-        </para>
-    </sect1>
-</chapter>
-
 
 </book>
