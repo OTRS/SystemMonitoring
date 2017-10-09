@@ -1,8 +1,5 @@
 # --
-# Kernel/System/PostMaster/Filter/SystemMonitoring.pm - Basic System Monitoring Interface
-# Copyright (C) 2001-2011 OTRS AG, http://otrs.org/
-# --
-# $Id: SystemMonitoring.pm,v 1.11 2011-06-06 19:11:25 jb Exp $
+# Copyright (C) 2001-2017 OTRS AG, http://otrs.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -15,9 +12,6 @@ use strict;
 use warnings;
 
 use Kernel::System::LinkObject;
-
-use vars qw($VERSION);
-$VERSION = qw($Revision: 1.11 $) [1];
 
 sub new {
     my ( $Type, %Param ) = @_;
@@ -173,9 +167,8 @@ sub Run {
         StateType => 'Open',
     );
     for my $Type (qw(Host Service)) {
-        $Query{ 'TicketFreeKey' . $Self->{Config}->{ 'FreeText' . $Type } } = $Type;
-        $Query{ 'TicketFreeText' . $Self->{Config}->{ 'FreeText' . $Type } }
-            = $Self->{$Type};
+        $Query{ 'TicketFreeKey' . $Self->{Config}->{ 'FreeText' . $Type } }  = $Type;
+        $Query{ 'TicketFreeText' . $Self->{Config}->{ 'FreeText' . $Type } } = $Self->{$Type};
     }
 
     # search tickets
@@ -205,10 +198,8 @@ sub Run {
 
         # Set Article Free Field for State
         my $ArticleFreeTextNumber = $Self->{Config}->{'FreeTextState'};
-        $Param{GetParam}->{ 'X-OTRS-FollowUp-ArticleKey' . $ArticleFreeTextNumber }
-            = 'State';
-        $Param{GetParam}->{ 'X-OTRS-FollowUp-ArticleValue' . $ArticleFreeTextNumber }
-            = $Self->{State};
+        $Param{GetParam}->{ 'X-OTRS-FollowUp-ArticleKey' . $ArticleFreeTextNumber }   = 'State';
+        $Param{GetParam}->{ 'X-OTRS-FollowUp-ArticleValue' . $ArticleFreeTextNumber } = $Self->{State};
 
         if ( $Self->{State} =~ /$Self->{Config}->{CloseTicketRegExp}/ ) {
 
@@ -468,16 +459,12 @@ sub _LinkTicketWithCI {
 
 =head1 TERMS AND CONDITIONS
 
-This software is part of the OTRS project (http://otrs.org/).
+This software is part of the OTRS project (L<http://otrs.org/>).
 
 This software comes with ABSOLUTELY NO WARRANTY. For details, see
 the enclosed file COPYING for license information (AGPL). If you
 did not receive this file, see L<http://www.gnu.org/licenses/agpl.txt>.
 
 =cut
-
-=head1 VERSION
-
-$Revision: 1.11 $ $Date: 2011-06-06 19:11:25 $
 
 =cut
