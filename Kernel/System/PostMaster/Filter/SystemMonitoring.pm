@@ -254,7 +254,7 @@ sub _MailParse {
     }
     my $Body = $Param{GetParam}->{Body};
 
-    my @BodyLines = split /\n/, $Param{GetParam}->{Body};
+    my @BodyLines = split /\n/, $Body;
 
     # to remember if an element was found before
     my %AlreadyMatched;
