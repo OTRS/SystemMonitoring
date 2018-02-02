@@ -1,3 +1,6 @@
+#5.0.3 2018-??-??
+ - 2018-02-02 Fixed bug#[9012](https://bugs.otrs.org/show_bug.cgi?id=9012) - OTRS dies if a system monitoring mail with an empty body will be received.
+
 #5.0.2 2016-??-??
  - 2016-11-04 Added Hungarian translation, thanks to Balázs Úr.
  - 2016-09-20 Fixed bug#[11190](http://bugs.otrs.org/show_bug.cgi?id=11190) - When Installaling SM "ArticleFreeText1" field is created as Ticket DF.

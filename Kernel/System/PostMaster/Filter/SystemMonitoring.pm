@@ -244,9 +244,17 @@ sub _MailParse {
     #  Don't Try to get State, Host and Service from email body, we want it from the subject alone
 
     # split the body into separate lines
-    my $Body = $Param{GetParam}->{Body} || die "Message has no Body";
+    if ( !$Param{GetParam}->{Body} ) {
+        $Kernel::OM->Get('Kernel::System::Log')->Log(
+            Priority => 'error',
+            Message  => "Need Body!",
+        );
 
-    my @BodyLines = split /\n/, $Body;
+        return;
+    }
+    my $Body = $Param{GetParam}->{Body};
+
+    my @BodyLines = split /\n/, $Param{GetParam}->{Body};
 
     # to remember if an element was found before
     my %AlreadyMatched;
