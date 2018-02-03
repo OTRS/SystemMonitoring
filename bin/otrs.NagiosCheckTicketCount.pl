@@ -66,7 +66,7 @@ my $Content = '';
 while (<$IN>) {
     $Content .= $_;
 }
-if ( !eval {$Content} ) {
+if ( !eval $Content ) {                                                           ## no critic
     print STDERR "ERROR: Invalid config file $Options{c}: $@\n";
 
     exit 1;

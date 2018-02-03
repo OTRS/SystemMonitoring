@@ -6,6 +6,10 @@
 # the enclosed file COPYING for license information (AGPL). If you
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
+4.0.4 - ????-??-??
+ - 2018-02-03 Fixed bug#12879 - Bug in otrs.NagiosCheckTicketCount.pl.
+
+4.0.3 - ????-??-??
 
 4.0.2 - 2014-??-??
  - 2015-11-17 Fixed bug#[9706](http://bugs.otrs.org/show_bug.cgi?id=9706) - ClosePending Time - not affected.
