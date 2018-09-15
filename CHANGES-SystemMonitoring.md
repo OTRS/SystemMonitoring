@@ -1,3 +1,6 @@
+#5.0.4 2018-09-15
+- 2018-09-15 Updated license information.
+
 #5.0.3 2018-??-??
  - 2018-02-02 Fixed bug#[9012](https://bugs.otrs.org/show_bug.cgi?id=9012) - OTRS dies if a system monitoring mail with an empty body will be received.
 
